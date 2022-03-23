@@ -16,20 +16,23 @@ async def on_ready():
 # This can be a DM or a message in a channel that the bot can see.
 @client.event
 async def on_message(message):
-    # If the message starts with $hello, respond with Hello!
+    # If the message starts with $alright babs then it will greet user to check bot works
     if message.content.startswith("$alright babs"):
         await message.channel.send("Alright there babs :wales:")
-        
+
+    #wake word for deal
     if message.content.startswith("$deal"):
         splitMsg = message.content.split(' ')
         backTogether = ""
         for i in range(1,len(splitMsg)):
             backTogether = backTogether + splitMsg[i] + " "
 
+        #acknoledgement of request
         messageAck = "looking for a deal for: " + backTogether + " \U0001F911"
         await message.channel.send(messageAck)
 
-        
+
+        #studentbeans section        
         studentBean = []
         for i in range(1,len(splitMsg)):
             studentBean.append(splitMsg[i])
@@ -41,6 +44,8 @@ async def on_message(message):
         messageBean = "studentbeans: " + beanLink
         await message.channel.send(messageBean)
 
+
+         #totum section  
         totum = []
         for i in range(1,len(splitMsg)):
             totum.append(splitMsg[i])
@@ -52,10 +57,12 @@ async def on_message(message):
         messageTotum= "totum: " + totumLink
         await message.channel.send(messageTotum)
 
+        #unidays section  
         unidays = []
         for i in range(1,len(splitMsg)):
             unidays.append(splitMsg[i])
-            
+
+        
         unidaysLink = "https://www.myunidays.com/GB/en-GB/partners/"
         for i in range(0,len(unidays)):
             unidaysLink = unidaysLink + unidays[i]
@@ -63,6 +70,7 @@ async def on_message(message):
         messageUnidays= "unidays: " + unidaysLink
         await message.channel.send(messageUnidays)
 
+    #help message for the user
     if message.content.startswith("$help"):
         helpMessage1= "**To test if its online, do $alright babs**"
         helpMessage2= "**To find a deal, do $deal <business name>**"
