@@ -16,3 +16,5 @@ What am I working on for this?
 
 
 Thanks for checking this out and hope you enjoy this (poorly checkstyled) code!
+
+PS thanks to Swanhack for the original discord python code that I heavily modified!
